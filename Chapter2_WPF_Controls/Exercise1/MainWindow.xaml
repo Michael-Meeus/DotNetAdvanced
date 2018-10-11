@@ -8,5 +8,15 @@
         Title="Button variations" Width="300" Height="300">
     <Grid>
         
+        <Button Content="Simple button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="123"/>
+        <StackPanel>
+        <Button HorizontalAlignment="Left" Margin="48,52,0,0" VerticalAlignment="Top" Width="191" Height="80" IsCancel="True">
+                <StackPanel>
+                    <Image Source="C:\Users\Work\Documents\GitHub\Guts-DotNetAdvanced\Chapter2_WPF_Controls\Exercise1\images\banner.png"/>
+                    <TextBlock Text="Image and text button"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
     </Grid>
 </Window>
