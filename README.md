@@ -15,6 +15,7 @@ The matching test projects contain **automated tests** that can be run to check 
 The assignments for each chapter can be found in de README.md in the folder of the chapter or by clicking on one of the links below:
 * [Chapter 2 - WPF Controls](Chapter2_WPF_Controls/README.md)
 * [Chapter 3 - WPF Layout](Chapter3_WPF_Layout/README.md)
+* [Chapter 4 - WPF Databinding](Chapter4_WPF_Databinding/README.md)
 * [Chapter 5 - Unit Testing](Chapter5_Unit_Testing/README.md)
 * [Chapter 10 - ADO.NET Transactions](Chapter10_ADO_Transactions/README.md)
 
@@ -59,6 +60,8 @@ If you click on a test you can also read more detailed messages that may help yo
 
 Although it is not a guarantee, having all tests green is a good indication that you completed the exercise correctly.
 
+Once you finished an exercise it is recommended to create a local commit that stores your changes.
+
 #### Check your results online
 Test results of all students are sent to the Guts servers.
 You can check your progress and compare with the averages of other students via [guts-web.appspot.com](https://guts-web.appspot.com).
@@ -71,8 +74,13 @@ Login, go to ".NET Advanced" in the navigation bar and select the chapter you wa
 When you are working on the exercises of a chapter and you get notified that the start code changed (e.g. after a bug fix in one of the tests), you want to get the latest version of the tests **without losing any work** you already did.
 You have 2 options:
 
-###### Option 1: stash your changes
-With git you can *stash* (or set aside) your local changes, then pull (or get) the latest version of the online repository to finally reapply the stashed local changes.
+###### Option1 (recommended): commit your changes locally
+The best option is to really **embrace git and create local commits** that contain your changes (e.g. each time you finish an exercise). 
+You can then safely do a **git pull origin master** without stashing your changes. 
+This wil create a (local) merge commit that contains an updated version of the tests (from origin) merged with the changes you made.
+
+###### Option 2: stash your changes
+If you don't have local commits that contain your changes, you can *stash* (or set aside) your local changes, then pull (or get) the latest version of the online repository to finally reapply the stashed local changes.
 * Open a command prompt
 * Navigate to the local folder in which you cloned the online repository (**!the root folder, not a folder for a specific chapter or exercise!**)
 * Save your local changes by executing the command **git stash**
@@ -80,10 +88,6 @@ With git you can *stash* (or set aside) your local changes, then pull (or get) t
 * Reapply your stashed changes: **git stash apply**
 * Clear the stash (in case you need to do this operation again in the future): **get stash clear**
 
-###### Option2 (recommended): commit your changes locally
-An even better option is to really **embrace git and create local commits** that contain your changes (e.g. each time you finish an exercise). 
-You can then safely do a **git pull origin master** without stashing your changes. 
-This wil create a (local) merge commit that contains an updated version of the tests (from origin) merged with the changes you made.
 
 [img_projects]:Images/projects.png "Solution for chapter five with its projects"
 [img_download]:Images/download.png "Download repository"

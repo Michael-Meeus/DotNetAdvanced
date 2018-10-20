@@ -1,6 +1,7 @@
 ﻿using FizzBuzz.Business.Tests;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
@@ -127,20 +128,7 @@ namespace Guts.Tests
             var testCaseAttributes = _checkExceptionThrowingWhenFizzIsOutOfRangTestMethod.GetCustomAttributes()
                 .OfType<TestCaseAttribute>().ToList();
 
-            Assert.That(testCaseAttributes, Has.Count.EqualTo(2), () => "The method should have 2 test cases.");
-
-            Assert.That(testCaseAttributes,
-                Has.All.Matches((TestCaseAttribute testCase) =>
-                {
-                    if (testCase.Arguments[0] is int fizz)
-                    {
-                        return fizz < FizzBuzzService.MinimumFactor || fizz > FizzBuzzService.MaximumFactor;
-                    }
-                    return false;
-                }),
-                () => "All test cases must have a fizzFactor that is out of range. " +
-                      "Tip: The range is determined by the constants " +
-                      "FizzBuzzService.MinimumFactor and FizzBuzzService.MaximumFactor");
+            AssertFactorOutOfRangeTestCases(testCaseAttributes, "fizzFactor");
 
             var methodBody = GetMethodBody(CheckExceptionThrowingWhenFizzIsOutOfRangeMethodName);
             AssertCallsSutMethodAndUsesAssertThatSyntax(methodBody);
@@ -172,20 +160,7 @@ namespace Guts.Tests
             var testCaseAttributes = _checkExceptionThrowingWhenBuzzIsOutOfRangTestMethod.GetCustomAttributes()
                 .OfType<TestCaseAttribute>().ToList();
 
-            Assert.That(testCaseAttributes, Has.Count.EqualTo(2), () => "The method should have 2 test cases.");
-
-            Assert.That(testCaseAttributes,
-                Has.All.Matches((TestCaseAttribute testCase) =>
-                {
-                    if (testCase.Arguments[0] is int buzz)
-                    {
-                        return buzz < FizzBuzzService.MinimumFactor || buzz > FizzBuzzService.MaximumFactor;
-                    }
-                    return false;
-                }),
-                () => "All test cases must have a buzzFactor that is out of range. " +
-                      "Tip: The range is determined by the constants " +
-                      "FizzBuzzService.MinimumFactor and FizzBuzzService.MaximumFactor");
+            AssertFactorOutOfRangeTestCases(testCaseAttributes, "buzzFactor");
 
             var methodBody = GetMethodBody(CheckExceptionThrowingWhenBuzzIsOutOfRangeMethodName);
             AssertCallsSutMethodAndUsesAssertThatSyntax(methodBody);
@@ -364,6 +339,37 @@ namespace Guts.Tests
                 () => "The method should use the 'Throws' class of NUnit.");
             Assert.That(methodBody, Contains.Substring("FizzBuzzValidationException"),
                 () => "The method should work with 'FizzBuzzValidationException'.");
+        }
+
+        private void AssertFactorOutOfRangeTestCases(IList<TestCaseAttribute> testCaseAttributes, string factorName)
+        {
+            Assert.That(testCaseAttributes, Has.Count.EqualTo(2), () => "The method should have 2 test cases.");
+
+            Assert.That(testCaseAttributes,
+                Has.Some.Matches((TestCaseAttribute testCase) =>
+                {
+                    if (testCase.Arguments[0] is int factor)
+                    {
+                        return factor < FizzBuzzService.MinimumFactor;
+                    }
+                    return false;
+                }),
+                () => $"At least one test case must have a {factorName} that is smaller than the minimum. " +
+                      "Tip: The range is determined by the constants " +
+                      "FizzBuzzService.MinimumFactor and FizzBuzzService.MaximumFactor");
+
+            Assert.That(testCaseAttributes,
+                Has.Some.Matches((TestCaseAttribute testCase) =>
+                {
+                    if (testCase.Arguments[0] is int fizz)
+                    {
+                        return fizz > FizzBuzzService.MaximumFactor;
+                    }
+                    return false;
+                }),
+                () => $"At least one test cases must have a {factorName} that is greather than the maximum. " +
+                      "Tip: The range is determined by the constants " +
+                      "FizzBuzzService.MinimumFactor and FizzBuzzService.MaximumFactor");
         }
     }
 }
