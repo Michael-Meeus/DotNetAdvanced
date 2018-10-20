@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Exercise8"
         mc:Ignorable="d"
         Title="Round button" Height="250" Width="250">
+    
     <Grid>
- 
+        <Button Style="{StaticResource RoundButton}"></Button>
     </Grid>
 </Window>

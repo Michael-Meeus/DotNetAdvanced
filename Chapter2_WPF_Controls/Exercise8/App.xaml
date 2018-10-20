@@ -4,6 +4,26 @@
              xmlns:local="clr-namespace:Exercise8"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+        <Style TargetType="Button">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid>
+                            <Ellipse Width="auto">
+                                <Ellipse.Fill>
+                                    <RadialGradientBrush GradientOrigin="0.5,0">
+                                        <RadialGradientBrush.GradientStops>
+                                            <GradientStop Color="Green" Offset="0.5" />
+                                            <GradientStop Color="Purple" Offset="1" />
+                                        </RadialGradientBrush.GradientStops>
+                                    </RadialGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <Ellipse Width="auto" Margin="5,5,5,5"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>
