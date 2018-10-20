@@ -4,26 +4,112 @@
              xmlns:local="clr-namespace:Exercise8"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="Button">
+        <ControlTemplate TargetType="Button" x:Key="ButtonTemplate">
+            <Grid>
+                <Ellipse Name="Ellipse1" Width="auto">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="Green" Offset="0" />
+                            <GradientStop Color="Purple" Offset="1" />
+                        </LinearGradientBrush>
+
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <Ellipse Width="auto" Margin="20,20">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="LightBlue" Offset="0" />
+                            <GradientStop Color="Blue" Offset="1" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter TargetName="Ellipse1" Property="Fill" Value="Black"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="true">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.8" ScaleY="0.8"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="RenderTransformOrigin">
+                        <Setter.Value>
+                            <Point X="0.5" Y="0.5"/>
+                        </Setter.Value>
+                    </Setter>
+
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+
+
+
+
+        <!--<Style TargetType="Button">
             <Setter Property="Control.Template">
                 <Setter.Value>
-                    <ControlTemplate>
+                    <ControlTemplate TargetType="Button">
                         <Grid>
-                            <Ellipse Width="auto">
+                            <Ellipse Name="Ellipse1" Width="auto">
                                 <Ellipse.Fill>
-                                    <RadialGradientBrush GradientOrigin="0.5,0">
-                                        <RadialGradientBrush.GradientStops>
-                                            <GradientStop Color="Green" Offset="0.5" />
-                                            <GradientStop Color="Purple" Offset="1" />
-                                        </RadialGradientBrush.GradientStops>
-                                    </RadialGradientBrush>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="Green" Offset="0" />
+                                        <GradientStop Color="Purple" Offset="1" />
+                                    </LinearGradientBrush>
+
                                 </Ellipse.Fill>
                             </Ellipse>
-                            <Ellipse Width="auto" Margin="5,5,5,5"/>
+
+                            <Ellipse Width="auto" Margin="20,20">
+                                <Ellipse.Fill>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="LightBlue" Offset="0" />
+                                        <GradientStop Color="Blue" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <ContentPresenter Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Ellipse Name="Ellipse1" Width="auto">
+                                        <Ellipse.Fill>
+                                            <SolidColorBrush Color="Black" />
+
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+
+                                    <Ellipse Width="auto" Margin="20,20">
+                                        <Ellipse.Fill>
+                                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                                <GradientStop Color="LightBlue" Offset="0.3" />
+                                                <GradientStop Color="Blue" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <ContentPresenter Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              ></ContentPresenter>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
+
     </Application.Resources>
+
 </Application>

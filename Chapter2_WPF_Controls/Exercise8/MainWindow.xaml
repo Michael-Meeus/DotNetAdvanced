@@ -8,6 +8,7 @@
         Title="Round button" Height="250" Width="250">
     
     <Grid>
-        <Button Style="{StaticResource RoundButton}"></Button>
+        <Button Name="Button1" Template="{StaticResource ButtonTemplate}" >Button</Button>
+        
     </Grid>
 </Window>
