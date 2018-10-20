@@ -7,6 +7,31 @@
         mc:Ignorable="d"
         Title="Toggle and group" Height="350" Width="200">
     <Canvas HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="190">
-        
+        <ToggleButton Height="26" Width="42" Canvas.Left="23" Canvas.Top="19">
+            <ToggleButton.Style>
+                <Style TargetType="{x:Type ToggleButton}">
+                    <Setter Property="Content" Value="Aan"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter Property="Content" Value="Uit"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ToggleButton.Style>
+        </ToggleButton>
+
+        <GroupBox Header="Leeftijd" Height="100" Canvas.Left="23" Canvas.Top="65" Width="100">
+            <StackPanel>
+                <CheckBox Content="0-18" Canvas.Left="52" Canvas.Top="202" IsChecked="True"/>
+                <CheckBox Content="19-50" Canvas.Left="52" Canvas.Top="242"/>
+                <CheckBox Content="50-80" Canvas.Left="52" Canvas.Top="222"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Geslacht" Height="100" Canvas.Left="23" Canvas.Top="179" Width="100">
+            <StackPanel>
+                <RadioButton Content="Man" Canvas.Left="52" Canvas.Top="202" IsChecked="True"/>
+                <RadioButton Content="Vrouw" Canvas.Left="52" Canvas.Top="242"/>
+            </StackPanel>
+        </GroupBox>
     </Canvas>
 </Window>
