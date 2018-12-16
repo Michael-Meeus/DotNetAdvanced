@@ -1,0 +1,7 @@
+C:\Users\Work\Documents\GitHub\Guts-DotNetAdvanced\Chapter10_ADO_Transactions\Exercise1\Bank.Data\bin\Debug\Bank.Data.dll
+C:\Users\Work\Documents\GitHub\Guts-DotNetAdvanced\Chapter10_ADO_Transactions\Exercise1\Bank.Data\bin\Debug\Bank.Data.pdb
+C:\Users\Work\Documents\GitHub\Guts-DotNetAdvanced\Chapter10_ADO_Transactions\Exercise1\Bank.Data\obj\Debug\Bank.Data.csproj.CoreCompileInputs.cache
+C:\Users\Work\Documents\GitHub\Guts-DotNetAdvanced\Chapter10_ADO_Transactions\Exercise1\Bank.Data\obj\Debug\Bank.Data.dll
+C:\Users\Work\Documents\GitHub\Guts-DotNetAdvanced\Chapter10_ADO_Transactions\Exercise1\Bank.Data\obj\Debug\Bank.Data.pdb
+C:\Users\Work\Documents\GitHub\Guts-DotNetAdvanced\Chapter10_ADO_Transactions\Exercise1\Bank.Data\bin\Debug\Bank.Data.dll.CodeAnalysisLog.xml
+C:\Users\Work\Documents\GitHub\Guts-DotNetAdvanced\Chapter10_ADO_Transactions\Exercise1\Bank.Data\bin\Debug\Bank.Data.dll.lastcodeanalysissucceeded
